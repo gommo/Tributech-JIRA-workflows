@@ -1,0 +1,1 @@
+This project contains various useful workflow conditions for use in JIRA

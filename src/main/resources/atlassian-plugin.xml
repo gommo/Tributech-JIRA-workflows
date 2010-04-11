@@ -1,0 +1,18 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="Tributech Workflows" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <application-version min="${jira.version}"/>
+    </plugin-info>
+
+    <workflow-condition key="worklog-null-condition" name="Work Remaining Is Null Condition"
+		class="au.tributech.atlassian.jira.workflow.NullWorklogConditionWorkflowPluginFactory">
+		<description key="au.tributech.atlassian.jira.workflow.condition.nullworklog.description">i18n description</description>
+
+		<condition-class>au.tributech.atlassian.jira.workflow.WorkRemainingIsNullCondition</condition-class>
+
+		<resource type="velocity" name="view" location="templates/jira/workflow/condition/nullworklog-condition-view.vm" />
+        <resource type="i18n" name="i18n" location="au.tributech.atlassian.jira.workflow.TributechWorkflow" />
+	</workflow-condition>
+</atlassian-plugin>
