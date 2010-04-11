@@ -12,6 +12,7 @@ public class WorkRemainingIsNullCondition extends AbstractJiraCondition {
     private static final Logger log = Logger.getLogger(WorkRemainingIsNullCondition.class);
 
     public boolean passesCondition(Map transientVars, Map args, PropertySet ps) throws WorkflowException {
-        return getIssue(transientVars).getEstimate() == 0;
+        Long remainingEstimate = getIssue(transientVars).getEstimate();
+        return (remainingEstimate != null? remainingEstimate == 0 : true);
     }
 }
